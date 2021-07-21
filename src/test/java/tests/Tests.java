@@ -2,6 +2,7 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.MobileElement;
@@ -112,7 +113,7 @@ public void testFour() {
 }
 }*/
 	
-	@Test
+/*	@Test
 	public void testFive() {
 		MobileElement el1 = (MobileElement) driver.findElementById("com.google.android.calculator:id/digit_7");
 		el1.click();
@@ -130,6 +131,32 @@ public void testFour() {
 		  {
 		   System.out.println("Test Failed...");
 		  }
+		System.out.println("COMPLETED TEST FIVE..");
+	}*/
+	
+	@Test
+	public void testSixPlusEight() {  //Samsung j2pro pop calculator
+		MobileElement digit6 = (MobileElement) driver.findElementById("com.sec.android.app.popupcalculator:id/bt_06");
+		digit6.click();
+		MobileElement digitPlus = (MobileElement) driver.findElementById("com.sec.android.app.popupcalculator:id/bt_add");
+		digitPlus.click();
+		MobileElement digit8 = (MobileElement) driver.findElementById("com.sec.android.app.popupcalculator:id/bt_08");
+		digit8.click();
+		MobileElement equalButton = (MobileElement) driver.findElementById("com.sec.android.app.popupcalculator:id/bt_equal");
+		equalButton.click();
+		MobileElement result = (MobileElement) driver.findElementById("com.sec.android.app.popupcalculator:id/txtCalc");
+		
+		Assert.assertEquals(result.getText(), "14");
+	/*	if(result.getText().equals("140"))
+		  {
+		   System.out.println("Test Passed...");
+		   Assert.assertTrue(true);
+		  }
+		  else
+		  {
+		   System.out.println("Test Failed...");
+		   Assert.assertTrue(false);
+		  }*/
 		System.out.println("COMPLETED TEST FIVE..");
 	}
 }

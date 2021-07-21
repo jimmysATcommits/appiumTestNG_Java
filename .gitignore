@@ -1,0 +1,15 @@
+/target/
+/.gradle
+/build
+/build/reports
+/build/reports/tests/*
+/build/*
+/logs
+/info
+/objects
+/target
+/out
+/bin
+.idea/
+.meta/*
+test-output

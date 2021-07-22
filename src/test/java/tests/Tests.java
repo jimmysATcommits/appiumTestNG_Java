@@ -2,6 +2,7 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -135,7 +136,11 @@ public void testFour() {
 	}*/
 	
 	@Test
-	public void testSixPlusEight() {  //Samsung j2pro pop calculator
+	public void testSixPlusEight() {  //Samsung pop calculator
+		//WebDriverWait wait = new WebDriverWait(driver, 5000);
+		//MobileElement Link = (MobileElement) driver.findElementByPartialLinkText("no");
+		//find using chrome inspector
+ 		//MobileElement userNameInput = (MobileElement) driver.findElement(By.xpath("//*[@id='content']/app-login/ion-content/div/ion-grid/ion-row/ion-col[2]/div/div[1]/div[1]/form/app-email-input/div/form/ion-input/input"));
 		MobileElement digit6 = (MobileElement) driver.findElementById("com.sec.android.app.popupcalculator:id/bt_06");
 		digit6.click();
 		MobileElement digitPlus = (MobileElement) driver.findElementById("com.sec.android.app.popupcalculator:id/bt_add");

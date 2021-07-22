@@ -16,13 +16,14 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 public class BaseClass {
 AppiumDriver<MobileElement> driver;
+DesiredCapabilities caps= new DesiredCapabilities();
+private String APP_ANDROID = "https://github.com/jimmysATcommits/appiumTestNG_Java/blob/main/apks/Calculator_SecCalculator_N.apk";
 	
 @BeforeTest
 public void setup()
 {
  try
  {
-  DesiredCapabilities caps= new DesiredCapabilities();
   caps.setCapability(MobileCapabilityType.PLATFORM_NAME,"ANDROID");
   caps.setCapability(MobileCapabilityType.PLATFORM_VERSION,"8.1.0");
   caps.setCapability(MobileCapabilityType.DEVICE_NAME,"Samsung J2 Pro");
@@ -35,7 +36,31 @@ public void setup()
   URL url = new URL("http://0.0.0.0:4723/wd/hub");
   driver = new AppiumDriver<MobileElement>(url, caps);
   }catch(Exception exp)
-  {}
+    {	  
+    }
+ }
+
+//emulator.exe -list-avds
+//emulator must be started first and
+//emulator -avd <emulator name>
+//@BeforeTest
+public void setupEmulator()
+{
+ try
+ {     
+  caps.setCapability("platformName", "Android");
+  caps.setCapability("deviceName", "Android Emulator");
+  caps.setCapability("automationName", "UiAutomator2");
+  caps.setCapability("app", APP_ANDROID);
+  caps.setCapability("appPackage","com.sec.android.app.popupcalculator");
+  caps.setCapability("appActivity","com.sec.android.app.popupcalculator.Calculator");
+  URL url = new URL("http://0.0.0.0:4723/wd/hub");
+  driver = new AppiumDriver<MobileElement>(url, caps);
+  }
+   catch(Exception exp)
+    {
+	   
+    }
  }
  @Test
  public void sampleTest()
